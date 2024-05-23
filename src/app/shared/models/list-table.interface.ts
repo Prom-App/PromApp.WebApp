@@ -42,7 +42,7 @@ export interface TableColumns<T> {
   action?: string;
   // Voy a declarar una propiedad que la voy a llamar sticky|||| Esto me va a indicar un tipo de estilo para las tablas de angular Material que hace que sean fijas las cabeceras
   sticky: boolean;
-  // Para poder asignar un tooltip informativo esto es sobre todo para los iconos||||
+  // Para poder asignar un tooltip informativo esto es sobre all para los iconos||||
   tooltip?: string;
   // Para poder indicar si esta columna se podrá descargar o no en el reporte de Excel||||
   download?: boolean;
