@@ -1,0 +1,50 @@
+<mat-form-field appearance="outline" class="w-full">
+  <!-- Etiqueta del campo -->
+  <mat-label>{{ label }}</mat-label>
+  <!-- Contenedor principal que envuelve el input y los botones -->
+  <div class="w-full flex h-5">
+    <!-- Input del autocomplete -->
+    <input
+      [placeholder]="placeholder"
+      matInput
+      [formControl]="control"
+      [matAutocomplete]="optionsAutocomplete"
+      autocomplete="on"
+      [readonly]="readonly"
+      [(ngModel)]="selectedItem"
+      (ngModelChange)="onOptionSelected($event)"
+    />
+    <!-- Contenedor para los botones -->
+    <ng-container>
+      <!-- Botón para resetear el control -->
+      <button @scaleInOut (click)="control.reset()" class="mr-4" type="button">
+        <!-- Ícono de cerrar (close) -->
+        <ic-icon
+          [icIcon]="iconsService.getIcon('icClose')"
+          [hidden]="readonly"
+        ></ic-icon>
+      </button>
+
+      <!-- Ícono de flecha hacia abajo para indicar el autocomplete -->
+      <ic-icon
+        class="text-xl text-mg-main-blue-light"
+        [icIcon]="iconsService.getIcon('icArrowDropDown')"
+      ></ic-icon>
+    </ng-container>
+  </div>
+  <!-- Mensaje de error si el campo es obligatorio y no tiene valor -->
+  <mat-error *ngIf="control.hasError('required')"
+    >Este campo es obligatorio.
+  </mat-error>
+  <!-- Componente de autocomplete de Angular Material -->
+  <mat-autocomplete
+    #optionsAutocomplete="matAutocomplete"
+    [displayWith]="mostrarDropdrown.bind(this)"
+    autoActiveFirstOption
+  >
+    <!-- Opciones del autocomplete generadas con *ngFor -->
+    <mat-option *ngFor="let option of opcionesfiltradas" [value]="option.id">
+      {{ option.description }}
+    </mat-option>
+  </mat-autocomplete>
+</mat-form-field>

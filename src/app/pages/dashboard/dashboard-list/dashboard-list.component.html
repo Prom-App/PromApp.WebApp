@@ -1,0 +1,122 @@
+<div class="flex flex-wrap justify-center items-center pt-4">
+<!--  <div-->
+<!--    class="mx-2 my-2 overflow-hidden text-center card p-6 relative hover:shadow-lg transition duration-200 ease-out-swift flex flex-col items-center w-64 rounded-3xl"-->
+<!--  >-->
+<!--    <mat-icon-->
+<!--      [icIcon]="icCategories"-->
+<!--      class="rounded-full w-12 h-12 flex items-center justify-center bg-am-new-orange-light text-am-new-orange-dark"-->
+<!--    ></mat-icon>-->
+<!--    <div class="p-4">-->
+<!--      <h3 class="text-xl font-semibold mb-2">50</h3>-->
+<!--      <p class="text-am-gray mb-4">Usuario</p>-->
+<!--      <a-->
+<!--        class="text-am-main-blue-dark border-b border-am-main-blue-dark hover:text-am-main-blue-dark hover:border-am-main-blue-dark cursor-pointer"-->
+<!--        (click)="routeCategories()"-->
+<!--        >Ver más</a-->
+<!--      >-->
+<!--    </div>-->
+<!--  </div>-->
+  <div
+    class="mx-2 my-2 overflow-hidden text-center card p-6 relative hover:shadow-lg transition duration-200 ease-out-swift flex flex-col items-center w-64 rounded-3xl"
+  >
+    <mat-icon
+      [icIcon]="icProducts"
+      class="rounded-full w-12 h-12 flex items-center justify-center bg-am-new-green-light text-am-new-green-dark"
+    ></mat-icon>
+    <div class="p-4">
+      <h3 class="text-xl font-semibold mb-2">125</h3>
+      <p class="text-am-gray mb-4">Test Tomados</p>
+      <a
+        class="text-am-main-blue-dark border-b border-am-main-blue-dark hover:text-am-main-blue-dark hover:border-am-main-blue-dark cursor-pointer"
+        (click)="routeProducts()"
+        >Ver más</a
+      >
+    </div>
+  </div>
+<!--  <div-->
+<!--    class="mx-2 my-2 overflow-hidden text-center card p-6 relative hover:shadow-lg transition duration-200 ease-out-swift flex flex-col items-center w-64 rounded-3xl"-->
+<!--  >-->
+<!--    <mat-icon-->
+<!--      [icIcon]="icWarehouse"-->
+<!--      class="rounded-full w-12 h-12 flex items-center justify-center bg-am-new-pink-light text-am-new-pink-dark"-->
+<!--    ></mat-icon>-->
+<!--    <div class="p-4">-->
+<!--      <h3 class="text-xl font-semibold mb-2">15</h3>-->
+<!--      <p class="text-am-gray mb-4">Almacenes</p>-->
+<!--      <a-->
+<!--        class="text-am-main-blue-dark border-b border-am-main-blue-dark hover:text-am-main-blue-dark hover:border-am-main-blue-dark cursor-pointer"-->
+<!--        (click)="routeWarehouses()"-->
+<!--        >Ver más</a-->
+<!--      >-->
+<!--    </div>-->
+<!--  </div>-->
+<!--  <div-->
+<!--    class="mx-2 my-2 overflow-hidden text-center card p-6 relative hover:shadow-lg transition duration-200 ease-out-swift flex flex-col items-center w-64 rounded-3xl"-->
+<!--  >-->
+<!--    <mat-icon-->
+<!--      [icIcon]="icProviders"-->
+<!--      class="rounded-full w-12 h-12 flex items-center justify-center bg-am-new-yellow-light text-am-new-yellow-dark"-->
+<!--    ></mat-icon>-->
+<!--    <div class="p-4">-->
+<!--      <h3 class="text-xl font-semibold mb-2">90</h3>-->
+<!--      <p class="text-am-gray mb-4">Proveedores</p>-->
+<!--      <a-->
+<!--        class="text-am-main-blue-dark border-b border-am-main-blue-dark hover:text-am-main-blue-dark hover:border-am-main-blue-dark cursor-pointer"-->
+<!--        (click)="routeProviders()"-->
+<!--        >Ver más</a-->
+<!--      >-->
+<!--    </div>-->
+<!--  </div>-->
+  <div
+    class="mx-2 my-2 overflow-hidden text-center card p-6 relative hover:shadow-lg transition duration-200 ease-out-swift flex flex-col items-center w-64 rounded-3xl"
+  >
+    <mat-icon
+      [icIcon]="icUsers"
+      class="rounded-full w-12 h-12 flex items-center justify-center bg-am-main-blue-light text-am-main-blue-dark"
+    ></mat-icon>
+    <div class="p-4">
+      <h3 class="text-xl font-semibold mb-2">15</h3>
+      <p class="text-am-gray mb-4">Usuarios</p>
+      <a
+        class="text-am-main-blue-dark border-b border-am-main-blue-dark hover:text-am-main-blue-dark hover:border-am-main-blue-dark cursor-pointer"
+        (click)="routeUsers()"
+        >Ver más</a
+      >
+    </div>
+  </div>
+</div>
+<div class="flex flex-wrap justify-center items-center pt-4">
+  <div
+    class="mx-2 my-2 card p-6 relative hover:shadow-lg transition duration-200 ease-out-swift flex flex-col items-center rounded-3xl"
+  >
+    <ngx-charts-bar-vertical
+      [view]="view"
+      [scheme]="colorScheme"
+      [results]="data"
+      [gradient]="gradient"
+      [xAxis]="showXAxis"
+      [yAxis]="showYAxis"
+      [legend]="showLegend"
+      [showXAxisLabel]="showXAxisLabel"
+      [showYAxisLabel]="showYAxisLabel"
+      [xAxisLabel]="xAxisLabel"
+      [yAxisLabel]="yAxisLabel"
+    >
+    </ngx-charts-bar-vertical>
+  </div>
+  <div
+    class="mx-2 my-2 card p-6 relative hover:shadow-lg transition duration-200 ease-out-swift flex flex-col items-center rounded-3xl"
+  >
+    <ngx-charts-pie-chart
+      [view]="viewPie"
+      [scheme]="colorSchemePie"
+      [results]="dataPie"
+      [gradient]="gradientPie"
+      [legend]="showLegendPie"
+      [legendPosition]="legendPosition"
+      [labels]="showLabels"
+      [doughnut]="isDoughnut"
+    >
+    </ngx-charts-pie-chart>
+  </div>
+</div>

@@ -1,0 +1,55 @@
+<form (ngSubmit)="userRoleSave()" [formGroup]="form">
+  <div mat-dialog-title class="flex justify-between">
+    <h2 class="headline m-0 text-xl text-accent">
+      <strong>{{
+        data.mode == "register"
+          ? "Registrar Nuevo Rol de Usuario"
+          : "Actualizar Rol de Usuario"
+      }}</strong>
+    </h2>
+    <button class="text-secondary" mat-dialog-close mat-icon-button>
+      <mat-icon [icIcon]="icClose"></mat-icon>
+    </button>
+  </div>
+  <mat-dialog-content>
+    <app-select-autocomplete
+      label="Usuarios"
+      [control]="form.get('userId')"
+      [required]="true"
+      [listOptions]="userSelect"
+    >
+    </app-select-autocomplete>
+
+    <app-select-autocomplete
+      label="Roles"
+      [control]="form.get('roleId')"
+      [required]="true"
+      [listOptions]="roleSelect"
+    >
+    </app-select-autocomplete>
+
+    <mat-form-field appearance="outline" class="w-full">
+      <mat-label>Estado</mat-label>
+      <mat-select formControlName="state">
+        <mat-option *ngFor="let state of configs" [value]="state.value">
+          {{ state.label }}
+        </mat-option>
+      </mat-select>
+      <mat-error *ngIf="form.get('state').hasError('required')">
+        Campo Estado es requerido.
+      </mat-error>
+    </mat-form-field>
+  </mat-dialog-content>
+  <mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>CANCELAR</button>
+    <button
+      color="purple"
+      class="bg-accent text-accent-contrast"
+      mat-button
+      type="submit"
+      [disabled]="form.invalid"
+    >
+      GUARDAR
+    </button>
+  </mat-dialog-actions>
+</form>

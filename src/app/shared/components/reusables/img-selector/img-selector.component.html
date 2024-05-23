@@ -1,0 +1,36 @@
+<!-- Contenedor flex con espacio justificado entre elementos -->
+<div class="flex justify-between">
+  <!-- Contenedor con margen inferior y superior -->
+  <div class="mb-4 mt-10">
+    <!-- Botón para subir una imagen -->
+    <button
+      type="button"
+      mat-button
+      class="text-am-purple text-sm h-10 font-medium w-full rounded-xl"
+      (click)="imgSelector.click()"
+    >
+      Subir imagen <mat-icon [icIcon]="icUpload"></mat-icon>
+    </button>
+    <!-- Input de tipo file oculto que se activa al hacer clic en el botón -->
+    <input type="file" hidden #imgSelector (change)="selectedImg($event)" />
+  </div>
+  <!-- Contenedor de imágenes -->
+  <div>
+    <!-- Div que se muestra si hay una imagen en formato base64 -->
+    <div *ngIf="imgBase64">
+      <!-- Etiqueta de imagen que muestra la imagen en formato base64 -->
+      <img
+        [src]="imgBase64"
+        class="w-42 h-32 border border-dashed border-am-main-blue-light rounded flex flex-col justify-between"
+      />
+    </div>
+    <!-- Div que se muestra si hay una URL de imagen actual y no hay una imagen en formato base64 -->
+    <div *ngIf="urlCurrentImg && !imgBase64">
+      <!-- Etiqueta de imagen que muestra la URL de la imagen actual -->
+      <img
+        [src]="urlCurrentImg"
+        class="w-42 h-32 border border-dashed border-am-main-blue-light rounded flex flex-col justify-between"
+      />
+    </div>
+  </div>
+</div>
