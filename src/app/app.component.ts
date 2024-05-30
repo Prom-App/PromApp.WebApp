@@ -43,7 +43,7 @@ export class AppComponent {
     this.configService.updateConfig({
       sidenav: {
         title: "PromAPP",
-        imageUrl: "/assets/img/demo/logo.svg",
+        imageUrl: "./assets/img/prom-icon.svg",
         showCollapsePin: true,
       },
     });
