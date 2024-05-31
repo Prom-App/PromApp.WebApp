@@ -12,6 +12,7 @@ export const endpoint = {
   // AUTH MODULE
   LOGIN: "usuario/autenticar",
   LOGIN_GOOGLE: "usuario/autenticarGoogle",
+  REGISTER: 'usuario/registrar',
 
   // PROVIDER MODULE
   LIST_PROVIDERS: "Provider",
