@@ -1,0 +1,22 @@
+<app-profile-header [avatarUrl]="avatarUrl" [title]="pageTitle" [progressWidth]="progress"></app-profile-header>
+
+<div class="body-profile">
+    <div class="container-profile">
+        <p class="description-profile text-futura">Dinos cuál es tu animal favorito. Éste será tu avatar para moverte en la
+            jungla.</p>
+
+        <form [formGroup]="form" class="form-group" (ngSubmit)="next()">
+            <app-select-autocomplete
+                    label="Avatar"
+                    [control]="form.get('avatar')"
+                    [required]="true"
+                    [listOptions]="avatarSelect"
+            >
+            </app-select-autocomplete>
+            <button type="submit" color="primary" mat-raised-button [disabled]="!form.valid">
+                Siguiente
+            </button>
+        </form>
+    </div>
+</div>
+

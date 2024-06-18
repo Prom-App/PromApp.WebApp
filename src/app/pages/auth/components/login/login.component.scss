@@ -39,7 +39,7 @@
   box-sizing: border-box;
 }
 
-.login{
+.login {
   text-align: center;
 }
 
@@ -48,8 +48,8 @@
     flex-direction: row;
   }
 
-  .content{
-    img{
+  .content {
+    img {
       height: auto;
     }
   }
@@ -99,4 +99,18 @@
 
 .animate-transition {
   transition: opacity 0.5s ease;
+}
+
+
+.mat-tab-label .mat-tab-label-content {
+  font-family: Helvetica-Light, sans-serif;
+
+}
+
+.mat-tab-labels {
+  justify-content: center !important;
+}
+
+.mat-tab-label-active > .mat-tab-label .mat-tab-label-content {
+  font-family: 'Cocogoose', sans-serif !important;
 }

@@ -78,7 +78,7 @@ export class AppComponent {
       {
         type: "link",
         label: "Perfil",
-        route: routing.PROFILE,
+        route: routing.ACCOUNT,
         icon: iconService.getIcon("icDashboard"),
       },
       {

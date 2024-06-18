@@ -1,0 +1,51 @@
+.header {
+  padding: 10% 0;
+  height: 275px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-bottom-left-radius: 60% 40%;
+  border-bottom-right-radius: 60% 40%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-top: 0;
+}
+
+.avatar {
+  margin: 10px;
+  display: flex;
+  aspect-ratio: 1;
+  min-width: 100px;
+  width: 10%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  border-radius: 100%;
+  border: 6px solid #fff;
+  box-shadow: 0 4px 4px 0 rgba(255, 107, 0, 0.50);
+}
+
+.header-title {
+  text-align: center;
+  color: #fff;
+  font-family: 'Cocogoose', sans-serif;
+  font-size: 22px;
+  font-style: italic;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin: 0 !important;
+}
+
+.progress-bar {
+  width: 60% !important;
+}
+
+.avatar-image {
+  width: 100%;
+  height: auto;
+  border-radius: 50%;
+}

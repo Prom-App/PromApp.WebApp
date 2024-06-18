@@ -1,0 +1,156 @@
+$primary-color: #FF6B00;
+$secondary-color: #10CFC9;
+$background-color: rgba(0, 0, 0, 0.6);
+$button-bg-color: #FF6B00;
+$button-text-color: #fff;
+$button-shadow-color: rgba(16, 207, 201, 0.25);
+$radio-checked-bg-color: #10CFC9;
+$radio-checked-text-color: #fff;
+$radio-border-color: #FF6B00;
+$question-bg-color: #FFB71B;
+$question-text-weight: 700;
+$question-text-size: 20px;
+
+body {
+  background-repeat: no-repeat !important;
+  background-attachment: fixed;
+  background-size: cover !important;
+  background-position: center !important;
+  height: 100vh;
+  transition: background 0.5s ease;
+}
+
+img {
+  margin: 50px;
+  position: relative;
+  z-index: 2;
+}
+
+.container {
+  z-index: 2;
+  width: 60%;
+  display: flex;
+  padding: 10px;
+  flex-direction: column;
+  align-items: center;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: $background-color;
+  z-index: 1;
+}
+
+form {
+  position: relative;
+  width: 70%;
+  margin: auto;
+  z-index: 2;
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 15px;
+}
+
+button {
+  margin-right: 10px;
+  display: flex;
+  width: 147px;
+  padding: 20px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 20px;
+  background: $button-bg-color;
+  color: $button-text-color;
+  box-shadow: 0 4px 4px 0 $button-shadow-color;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+/* Estilo personalizado para los radio buttons como botones */
+.btn-group {
+  margin: 20px;
+  display: flex;
+  padding: 15px;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  align-self: stretch;
+  border-radius: 10px;
+  border: 2px solid $radio-border-color;
+  background: rgba(38, 38, 38, 0.50);
+
+  input[type="radio"] {
+    display: none;
+  }
+
+  .radio-opt {
+    width: 100%;
+  }
+
+  label {
+    margin-bottom: 0;
+    display: flex;
+    padding: 15px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    border-radius: 10px;
+    border: 2px solid $radio-border-color;
+    background: #FFF;
+    color: #000 !important;
+    font-size: 18px !important;
+    font-family: 'Helvetica-Light', sans-serif !important;
+  }
+
+  input[type="radio"]:checked + label {
+    z-index: 1;
+    background-color: $radio-checked-bg-color;
+    color: $radio-checked-text-color;
+    border-color: $radio-border-color;
+  }
+}
+
+.question-parent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .question {
+    width: 100%;
+    display: flex;
+    padding: 5px 20px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    background: $question-bg-color;
+    font-weight: $question-text-weight;
+    font-size: $question-text-size;
+    font-style: normal;
+  }
+}
+
+.buttons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+
+  .finish-button {
+    margin-left: auto;
+  }
+}

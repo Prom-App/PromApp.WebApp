@@ -1,11 +1,12 @@
 export const routing = {
   LOGIN: 'ingresar',
   REGISTER: 'registrarse',
-  PROFILE: 'perfil',
-  PROFILE_INTRO: 'perfil/intro',
-  PROFILE_AVATAR: 'perfil/avatar',
-  PROFILE_COMPLETE: 'perfil/completar',
-  ON_BOARDING_TEST: 'perfil/on-boarding',
+
+  ACCOUNT: 'perfil',
+  ACCOUNT_AVATAR: 'avatar',
+  ACCOUNT_COMPLETE: 'completar',
+
+  ON_BOARDING_TEST: 'test/on-boarding',
   HOME: 'home',
   CAREER: 'carrera',
   PERSONALITY: 'carrera/personalidad',

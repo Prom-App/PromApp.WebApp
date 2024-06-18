@@ -1,0 +1,30 @@
+.progress-bar {
+  position: relative;
+  padding: 0 15%;
+  min-width: 600px;
+  height: 40px;
+  border-radius: 20px;
+  background: #005CB9;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.progress {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background: #10CFC9;
+  border-radius: 20px;
+  z-index: 1;
+}
+
+.progress-icon {
+  border-radius: 100%;
+  background: #fff;
+  width: 40px;
+  height: 40px;
+  z-index: 2;
+}
+

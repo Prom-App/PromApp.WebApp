@@ -89,14 +89,14 @@ export class LoginComponent implements OnInit {
         if (this.loginForm.invalid) {
             return Object.values(this.loginForm.controls).forEach((controls) => {
                 controls.markAllAsTouched();
-
                 this.spinner.hide();
             });
         }
         this.authService.login(this.loginForm.value, "Interno").subscribe((resp) => {
             this.spinner.hide();
             if (resp) {
-                this.router.navigate(["/"]);
+                this._alert.success("Conectado", "Ingresando");
+                this.router.navigate([routing.ON_BOARDING_TEST]);
             }
         });
     }
@@ -113,6 +113,7 @@ export class LoginComponent implements OnInit {
         if (this.confirmPasswordValidator(this.registerForm) != null) {
             this.spinner.hide();
             this._alert.error("Algo salió mal", "Las contraseñas no coinciden");
+            return;
         }
 
         if (this.registerForm.invalid) {
@@ -125,7 +126,7 @@ export class LoginComponent implements OnInit {
         this.authService.register(this.registerForm.value).subscribe(() => {
             this.spinner.hide();
             this._alert.success("Conectado", "Ingresando");
-            this.router.navigate([routing.PROFILE_INTRO]);
+            this.router.navigate([routing.ON_BOARDING_TEST]);
         });
     }
 
@@ -139,5 +140,42 @@ export class LoginComponent implements OnInit {
             this.visible = true;
             this.cd.markForCheck();
         }
+    }
+
+    hasUpper() {
+        return /[A-Z]/.test(this.registerForm.value.contrasena);
+    }
+
+    hasLower() {
+        return /[a-z]/.test(this.registerForm.value.contrasena);
+    }
+
+    hasNumber() {
+        return /\d/.test(this.registerForm.value.contrasena);
+    }
+
+    hasSpecial() {
+        return /[!@#$%^&*(),.?":{}|<>]/.test(this.registerForm.value.contrasena);
+    }
+
+    minLength() {
+        return this.registerForm.value.contrasena.length >= 8;
+    }
+
+    tooltip(): string {
+        const messages = [];
+        if (!this.minLength()) {
+            messages.push('Mínimo 8 caracteres');
+        }
+        if (!this.hasUpper()) {
+            messages.push('Al menos una mayúscula');
+        }
+        if (!this.hasLower()) {
+            messages.push('Al menos una minúscula');
+        }
+        if (!this.hasNumber()) {
+            messages.push('Al menos un número');
+        }
+        return messages.join("\n");
     }
 }

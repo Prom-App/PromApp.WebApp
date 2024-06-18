@@ -34,28 +34,9 @@ a {
 }
 
 .text-basic {
-  font-family: Helvetica-Light, 'sans-serif' !important;
+  font-family: Helvetica-Light, sans-serif !important;
   font-size: 16px;
 }
-
-@media (min-width: 1400px) {
-  .container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
-    max-width: 1600px !important;
-  }
-}
-
-@media (min-width: 1600px) {
-  .container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
-    max-width: 2000px !important;
-  }
-}
-
-@media (min-width: 2000px) {
-  .container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
-    max-width: 2500px !important;
-  }
-}
-
 
 :root {
   /* fonts */
@@ -118,12 +99,6 @@ hr {
   opacity: 1 !important;
   border: none !important;
   margin: 0.7rem 0 !important;
-}
-
-.vertical-center {
-  display: flex;
-  align-items: center;
-  height: 100%;
 }
 
 .form-control-prom {
@@ -284,9 +259,9 @@ i.pr-school {
   text-align: center;
 }
 
-.icon-right {
-  margin-right: calc(var(--bs-border-width) * -1);
-}
+/*.icon-right {*/
+/*  margin-right: calc(var(--bs-border-width) * -1);*/
+/*}*/
 
 .login-buttons {
   display: flex;

@@ -1,0 +1,15 @@
+.form-container {
+  height: 100vh;
+  overflow-y: auto;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+.textbox {
+  margin-bottom: 20px;
+}

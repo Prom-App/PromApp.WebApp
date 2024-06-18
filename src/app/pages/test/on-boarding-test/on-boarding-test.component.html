@@ -1,0 +1,35 @@
+<div id="body">
+    <div class="container">
+        <img src="assets/img/test/onBoarding-description.png" alt="">
+
+        <form [formGroup]="testForm">
+            <div *ngFor="let pregunta of test?.preguntas; let i = index">
+                <div class="question-parent" *ngIf="i === currentIndex">
+                    <div class="question">
+                        <label>{{ i + 1 }}. {{ pregunta.enunciado }}</label>
+                    </div>
+
+                    <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                        <div class="radio-opt" *ngFor="let resp of pregunta.respuestas; let j=index">
+                            <input type="radio" class="btn-check" name="{{pregunta.id}}" id="{{pregunta.id}}-{{resp.id}}"
+                                   [checked]="isRespuestaSeleccionada(pregunta.id, resp.id)"
+                                   (change)="onRadioChange(pregunta.id, resp)">
+                            <label class="btn btn-outline-primary" for="{{pregunta.id}}-{{resp.id}}">{{ resp.enunciado }}</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="buttons">
+                <button *ngIf="currentIndex <= test?.preguntas?.length - 1 && currentIndex!=0" (click)="prevQuestion()">
+                    Anterior
+                </button>
+                <div class="finish-button">
+                    <button *ngIf="currentIndex < test?.preguntas?.length - 1" (click)="nextQuestion()" [disabled]="!isCurrentChecked()">Siguiente</button>
+                    <button *ngIf="currentIndex === test?.preguntas?.length - 1" (click)="submitForm()" [disabled]="!isCurrentChecked()">Finalizar</button>
+                </div>
+            </div>
+
+        </form>
+    </div>
+</div>

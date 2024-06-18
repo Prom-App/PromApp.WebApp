@@ -14,6 +14,23 @@ export const endpoint = {
   LOGIN_GOOGLE: "usuario/autenticarGoogle",
   REGISTER: 'usuario/registrar',
 
+  // TEST MODULE
+  TEST_BY_NAME:'test/',
+  SAVE_TEST: 'test/guardarTest',
+
+  // ACCOUNT MODULE
+  UPDATE_USER:'usuario/actualizarUsuario',
+
+  // SHARED MODULE
+  AVATAR_LIST:'avatar/listar',
+  CITY_LIST:'ciudad/listar',
+  COUNTRY_LIST:'pais/listar',
+  COUNTRY:'pais/',
+  GENDER_LIST:'genero/listar',
+  NATIONALITY_LIST:'nacionalidad/listar',
+  STATE_LIST:'departamento/listar',
+  STATE:'departamento/',
+
   // PROVIDER MODULE
   LIST_PROVIDERS: "Provider",
   LIST_SELECT_PROVIDERS: "Provider/Select",

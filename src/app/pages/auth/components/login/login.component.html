@@ -1,98 +1,93 @@
 <div class="split-container">
-  <div class="left-column" [style.background-image]="'url(' + backgroundImageUrl + ')'">
-    <div class="content animate-transition">
-      <img src="./assets/img/logo-PROM.png"><br>
-      <img src="./assets/img/login-slogan.png" *ngIf="imgShow">
+    <div class="left-column" [style.background-image]="'url(' + backgroundImageUrl + ')'">
+        <div class="content animate-transition">
+            <img src="./assets/img/logo-PROM.png"><br>
+            <img src="./assets/img/login-slogan.png" *ngIf="imgShow">
+        </div>
     </div>
-  </div>
-  <div class="right-column">
-    <div class="login">
-      <h2 class="animate-transition">{{loginTitle}}</h2>
-      <h3 class="animate-transition">{{loginSubTitle}}</h3>
-      <br>
-      <mat-tab-group (selectedTabChange)="onTabChange($event)">
-        <mat-tab label="Ingresar">
-          <form [formGroup]="loginForm" class="login-form" (ngSubmit)="login()">
-            <mat-form-field appearance="outline" class="textbox">
-              <mat-label>Usuario</mat-label>
-              <input matInput formControlName="email" />
-              <mat-error *ngIf="loginForm.get('email').hasError('required')">
-                Campo username es requerido.
-              </mat-error>
-            </mat-form-field>
-            <mat-form-field appearance="outline" class="textbox">
-              <mat-label>Contraseña</mat-label>
-              <input [type]="inputType" formControlName="contrasena" matInput />
-              <mat-error *ngIf="loginForm.get('contrasena').hasError('required')">
-                Campo password es requerido.
-              </mat-error>
-              <button
-                      (click)="toggleVisibility()"
-                      mat-icon-button
-                      matSuffix
-                      matTooltip="{{ !visible ? 'Ver contraseña' : 'Ocultar contraseña' }}"
-                      type="button"
-              >
-                <mat-icon *ngIf="visible" [icIcon]="icVisibility"></mat-icon>
-                <mat-icon *ngIf="!visible" [icIcon]="icVisibilityOff"></mat-icon>
-              </button>
-            </mat-form-field>
-            <button type="submit" color="primary" mat-raised-button>
-              Iniciar Sesión
-            </button>
-          </form>
-        </mat-tab>
-        <mat-tab label="Registrarme">
-          <form [formGroup]="registerForm" class="login-form" (ngSubmit)="register()">
-            <mat-form-field appearance="outline" class="textbox">
-              <mat-label>Usuario</mat-label>
-              <input matInput formControlName="email" />
-              <mat-error *ngIf="registerForm.get('email').hasError('required')">
-                Campo username es requerido.
-              </mat-error>
-            </mat-form-field>
-            <mat-form-field appearance="outline" class="textbox">
-              <mat-label>Contraseña</mat-label>
-              <input [type]="inputType" formControlName="contrasena" matInput />
-              <mat-error *ngIf="registerForm.get('contrasena').hasError('required')">
-                Campo password es requerido.
-              </mat-error>
-              <button
-                      (click)="toggleVisibility()"
-                      mat-icon-button
-                      matSuffix
-                      matTooltip="{{ !visible ? 'Ver contraseña' : 'Ocultar contraseña' }}"
-                      type="button"
-              >
-                <mat-icon *ngIf="visible" [icIcon]="icVisibility"></mat-icon>
-                <mat-icon *ngIf="!visible" [icIcon]="icVisibilityOff"></mat-icon>
-              </button>
-            </mat-form-field>
-            <mat-form-field appearance="outline" class="textbox">
-              <mat-label>Confirmar Contraseña</mat-label>
-              <input [type]="inputType" formControlName="confirmaContrasena" matInput />
-              <mat-error *ngIf="registerForm.get('confirmaContrasena').hasError('required')">
-                Campo password es requerido.
-              </mat-error>
-              <button
-                      (click)="toggleVisibility()"
-                      mat-icon-button
-                      matSuffix
-                      matTooltip="{{ !visible ? 'Ver contraseña' : 'Ocultar contraseña' }}"
-                      type="button"
-              >
-                <mat-icon *ngIf="visible" [icIcon]="icVisibility"></mat-icon>
-                <mat-icon *ngIf="!visible" [icIcon]="icVisibilityOff"></mat-icon>
-              </button>
-            </mat-form-field>
-            <button type="submit" color="primary" mat-raised-button>
-              Registrarme
-            </button>
-          </form>
-        </mat-tab>
-      </mat-tab-group>
-      <br>
-      <app-login-google></app-login-google>
+    <div class="right-column">
+        <div class="login">
+            <h2 class="animate-transition text-coco">{{loginTitle}}</h2>
+            <h3 class="animate-transition text-basic">{{loginSubTitle}}</h3>
+            <br>
+            <mat-tab-group (selectedTabChange)="onTabChange($event)">
+                <mat-tab label="Ingresar">
+                    <form [formGroup]="loginForm" class="login-form" (ngSubmit)="login()">
+                        <mat-form-field appearance="outline" class="textbox">
+                            <mat-label>Usuario</mat-label>
+                            <input matInput formControlName="email"/>
+                        </mat-form-field>
+                        <mat-form-field appearance="outline" class="textbox">
+                            <mat-label>Contraseña</mat-label>
+                            <input [type]="inputType" formControlName="contrasena" matInput/>
+                            <button
+                                    (click)="toggleVisibility()"
+                                    mat-icon-button
+                                    matSuffix
+                                    matTooltip="{{ !visible ? 'Ver contraseña' : 'Ocultar contraseña' }}"
+                                    type="button"
+                            >
+                                <mat-icon *ngIf="visible" [icIcon]="icVisibility"></mat-icon>
+                                <mat-icon *ngIf="!visible" [icIcon]="icVisibilityOff"></mat-icon>
+                            </button>
+                        </mat-form-field>
+                        <button type="submit" color="primary" mat-raised-button>
+                            Iniciar Sesión
+                        </button>
+                    </form>
+                </mat-tab>
+                <mat-tab label="Registrarme">
+                    <form [formGroup]="registerForm" class="login-form" (ngSubmit)="register()">
+                        <mat-form-field appearance="outline" class="textbox">
+                            <mat-label>Usuario</mat-label>
+                            <input matInput formControlName="email"/>
+                        </mat-form-field>
+                        <mat-form-field appearance="outline" class="textbox">
+                            <mat-label>Contraseña</mat-label>
+                            <input [type]="inputType" formControlName="contrasena" matInput
+                                   (focus)="menuTrigger.openMenu()"
+                                   (blur)="menuTrigger.closeMenu()"
+                                   #menuTrigger="matMenuTrigger"
+                                   [matMenuTriggerFor]="menu"/>
+                            <mat-menu #menu="matMenu" class="popover-style">
+                                <ng-template matMenuContent *ngIf="tooltip().trim() !== ''">
+                                    <div [innerText]="tooltip()"></div>
+                                </ng-template>
+                            </mat-menu>
+                            <button
+                                    (click)="toggleVisibility()"
+                                    mat-icon-button
+                                    matSuffix
+                                    matTooltip="{{ !visible ? 'Ver contraseña' : 'Ocultar contraseña' }}"
+                                    type="button"
+                            >
+                                <mat-icon *ngIf="visible" [icIcon]="icVisibility"></mat-icon>
+                                <mat-icon *ngIf="!visible" [icIcon]="icVisibilityOff"></mat-icon>
+                            </button>
+                        </mat-form-field>
+                        <mat-form-field appearance="outline" class="textbox">
+                            <mat-label>Confirmar Contraseña</mat-label>
+                            <input [type]="inputType" formControlName="confirmaContrasena" matInput/>
+                            <button
+                                    (click)="toggleVisibility()"
+                                    mat-icon-button
+                                    matSuffix
+                                    matTooltip="{{ !visible ? 'Ver contraseña' : 'Ocultar contraseña' }}"
+                                    type="button"
+                            >
+                                <mat-icon *ngIf="visible" [icIcon]="icVisibility"></mat-icon>
+                                <mat-icon *ngIf="!visible" [icIcon]="icVisibilityOff"></mat-icon>
+                            </button>
+                        </mat-form-field>
+                        <button type="submit" color="primary" mat-raised-button>
+                            Registrarme
+                        </button>
+                    </form>
+                </mat-tab>
+            </mat-tab-group>
+            <br>
+            <app-login-google></app-login-google>
+        </div>
     </div>
-  </div>
 </div>
+

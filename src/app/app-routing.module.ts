@@ -4,6 +4,8 @@ import { AuthGuard } from "@shared/guards/auth.guard";
 import { VexRoutes } from "src/@vex/interfaces/vex-route.interface";
 import { CustomLayoutComponent } from "./custom-layout/custom-layout.component";
 import { NotFoundComponent } from "./pages/not-found/not-found.component";
+import {routing} from "@shared/static-helpers/routing";
+import {OnBoardingTestComponent} from "./pages/test/on-boarding-test/on-boarding-test.component";
 
 const childrenRoutes: VexRoutes = [
   {
@@ -93,6 +95,23 @@ const routes: VexRoutes = [
     path: "login",
     loadChildren: () =>
       import("./pages/auth/auth.module").then((m) => m.AuthModule),
+    data: {
+      containerEnabled: true,
+    },
+  },
+  {
+    path: routing.ACCOUNT,
+    loadChildren: () =>
+        import("./pages/account/account.module").then((m) => m.AccountModule),
+    data: {
+      containerEnabled: true,
+    },
+  },
+  {
+    path: routing.ON_BOARDING_TEST,
+    loadChildren: () =>
+        import("./pages/test/test.module").then((x) => x.TestModule),
+    component: OnBoardingTestComponent,
     data: {
       containerEnabled: true,
     },

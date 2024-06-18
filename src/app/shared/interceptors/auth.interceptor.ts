@@ -1,6 +1,7 @@
 import {
   HttpEvent,
   HttpHandler,
+  HttpHeaders,
   HttpInterceptor,
   HttpRequest,
 } from "@angular/common/http";
@@ -20,8 +21,14 @@ export class AuthInterceptor implements HttpInterceptor {
     const userToken: any = this.authService.userToken;
     // Vamos a capturar nuestra nueva variable para obtener el tipo de autenticación
     const typeAuth = localStorage.getItem("authType");
-
+    let authReq = req;
     if (userToken) {
+      authReq = authReq.clone({
+        setHeaders: {
+          Authorization: `Bearer ${userToken}`,
+          AuthType: typeAuth || '',
+        },
+      });
       // Aquí anexamos através de los headers el Bearer Token para ejecutar nuestras apis sin ningun problema ya que sabemos que está protegidas por un token válido.
       req = req.clone({
         setHeaders: {
@@ -33,6 +40,6 @@ export class AuthInterceptor implements HttpInterceptor {
     }
 
     // y finalmente retornamos el request con nuestro header configurado
-    return next.handle(req);
+    return next.handle(authReq);
   }
 }

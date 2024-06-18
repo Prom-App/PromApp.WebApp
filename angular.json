@@ -38,7 +38,8 @@
               "src/@vex/styles/tailwind.scss",
               "src/styles.scss"
             ],
-            "scripts": [],
+            "scripts": [
+              "node_modules/jquery/dist/jquery.min.js"],
             "allowedCommonJsDependencies": [
               "simplebar",
               "highlight.js",
