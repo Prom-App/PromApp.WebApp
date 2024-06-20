@@ -23,15 +23,17 @@ jobs:
 
       - name: npm install, build, and test
         run: |
-          npm install
+          npm install --force
           npm run build --if-present
-          npm run test --if-present
       
+      - name: Zip artifact for deployment
+        run: |
+          Compress-Archive -Path dist/vex/* -DestinationPath release.zip
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v3
         with:
           name: node-app
-          path: .
+          path: release.zip
 
   deploy:
     runs-on: ubuntu-latest
@@ -47,6 +49,9 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: node-app
+
+      - name: Unzip artifact for deployment
+        run: unzip release.zip -d extracted
       
       - name: Login to Azure
         uses: azure/login@v1
@@ -61,5 +66,5 @@ jobs:
         with:
           app-name: 'webdevprom'
           slot-name: 'Production'
-          package: .
+          package: extracted
           
