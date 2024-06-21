@@ -3,8 +3,8 @@ export const routing = {
   REGISTER: 'registrarse',
 
   ACCOUNT: 'perfil',
-  ACCOUNT_AVATAR: 'avatar',
-  ACCOUNT_COMPLETE: 'completar',
+  ACCOUNT_AVATAR: 'perfil/avatar',
+  ACCOUNT_COMPLETE: 'perfil/completar',
 
   ON_BOARDING_TEST: 'test/on-boarding',
   HOME: 'home',

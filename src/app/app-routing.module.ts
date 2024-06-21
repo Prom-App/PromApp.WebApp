@@ -4,79 +4,93 @@ import { AuthGuard } from "@shared/guards/auth.guard";
 import { VexRoutes } from "src/@vex/interfaces/vex-route.interface";
 import { CustomLayoutComponent } from "./custom-layout/custom-layout.component";
 import { NotFoundComponent } from "./pages/not-found/not-found.component";
-import {routing} from "@shared/static-helpers/routing";
-import {OnBoardingTestComponent} from "./pages/test/on-boarding-test/on-boarding-test.component";
+import { routing } from "@shared/static-helpers/routing";
+import { OnBoardingTestComponent } from "./pages/test/on-boarding-test/on-boarding-test.component";
+import {SelectAvatarComponent} from "./pages/account/components/select-avatar/select-avatar.component";
+import {CompleteProfileComponent} from "./pages/account/components/complete-profile/complete-profile.component";
+
+const accountRoutes: VexRoutes = [
+  {
+    path: "",
+    loadChildren: () =>
+        import("./pages/account/account.module").then((m) => m.AccountModule),
+  },
+];
 
 const childrenRoutes: VexRoutes = [
   {
     path: "estadisticas",
     loadChildren: () =>
-      import("./pages/dashboard/dashboard.module").then(
-        (m) => m.DashboardModule
-      ),
+        import("./pages/dashboard/dashboard.module").then(
+            (m) => m.DashboardModule
+        ),
   },
   {
     path: "categorias",
     loadChildren: () =>
-      import("./pages/category/category.module").then((m) => m.CategoryModule),
+        import("./pages/category/category.module").then((m) => m.CategoryModule),
   },
   {
     path: "proveedores",
     loadChildren: () =>
-      import("./pages/provider/provider.module").then((m) => m.ProviderModule),
+        import("./pages/provider/provider.module").then((m) => m.ProviderModule),
   },
   {
     path: "productos",
     loadChildren: () =>
-      import("./pages/product/product.module").then((m) => m.ProductModule),
+        import("./pages/product/product.module").then((m) => m.ProductModule),
   },
   {
     path: "almacenes",
     loadChildren: () =>
-      import("./pages/warehouse/warehouse.module").then(
-        (m) => m.WarehouseModule
-      ),
+        import("./pages/warehouse/warehouse.module").then(
+            (m) => m.WarehouseModule
+        ),
   },
   {
     path: "proceso-compras",
     loadChildren: () =>
-      import("./pages/product-entry/product-entry.module").then(
-        (m) => m.ProductEntryModule
-      ),
+        import("./pages/product-entry/product-entry.module").then(
+            (m) => m.ProductEntryModule
+        ),
   },
   {
     path: "clientes",
     loadChildren: () =>
-      import("./pages/client/client.module").then((m) => m.ClientModule),
+        import("./pages/client/client.module").then((m) => m.ClientModule),
   },
   {
     path: "proceso-ventas",
     loadChildren: () =>
-      import("./pages/sale/sale.module").then((m) => m.SaleModule),
+        import("./pages/sale/sale.module").then((m) => m.SaleModule),
   },
   {
     path: "usuarios",
     loadChildren: () =>
-      import("./pages/user/user.module").then((m) => m.UserModule),
+        import("./pages/user/user.module").then((m) => m.UserModule),
   },
   {
     path: "roles-permisos",
     loadChildren: () =>
-      import("./pages/role/role.module").then((m) => m.RoleModule),
+        import("./pages/role/role.module").then((m) => m.RoleModule),
   },
   {
     path: "rol-usuarios",
     loadChildren: () =>
-      import("./pages/user-role/user-role.module").then(
-        (m) => m.UserRoleModule
-      ),
+        import("./pages/user-role/user-role.module").then(
+            (m) => m.UserRoleModule
+        ),
   },
   {
     path: "permisos",
     loadChildren: () =>
-      import("./pages/permission/permission.module").then(
-        (m) => m.PermissionModule
-      ),
+        import("./pages/permission/permission.module").then(
+            (m) => m.PermissionModule
+        ),
+  },
+  {
+    path: routing.ACCOUNT,
+    children: accountRoutes,
   },
   {
     path: "**",
@@ -90,19 +104,10 @@ const routes: VexRoutes = [
     redirectTo: "estadisticas",
     pathMatch: "full",
   },
-  // Creamos el módulo y el componente para el login|||| Y aquí creamos nuestra ruta inicial que será el Login del sistema
   {
     path: "login",
     loadChildren: () =>
-      import("./pages/auth/auth.module").then((m) => m.AuthModule),
-    data: {
-      containerEnabled: true,
-    },
-  },
-  {
-    path: routing.ACCOUNT,
-    loadChildren: () =>
-        import("./pages/account/account.module").then((m) => m.AccountModule),
+        import("./pages/auth/auth.module").then((m) => m.AuthModule),
     data: {
       containerEnabled: true,
     },
@@ -120,7 +125,6 @@ const routes: VexRoutes = [
     path: "",
     component: CustomLayoutComponent,
     children: childrenRoutes,
-    // Aquí con la propiedad llamada canActivate podemos asignarle el guard que acabamos de crear|||| entonces con esto indicamos que nuestros modulos o rutas hijas estarán protegidas.
     canActivate: [AuthGuard],
   },
 ];
@@ -128,7 +132,6 @@ const routes: VexRoutes = [
 @NgModule({
   imports: [
     RouterModule.forRoot(routes, {
-      // preloadingStrategy: PreloadAllModules,
       scrollPositionRestoration: "enabled",
       relativeLinkResolution: "corrected",
       anchorScrolling: "enabled",

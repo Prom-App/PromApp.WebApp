@@ -1,17 +1,22 @@
 import { NgModule } from "@angular/core";
-import { RouterModule, Routes } from "@angular/router";
+import { RouterModule } from "@angular/router";
+import {VexRoutes} from "../../../@vex/interfaces/vex-route.interface";
 import {SelectAvatarComponent} from "./components/select-avatar/select-avatar.component";
-import {routing} from "@shared/static-helpers/routing";
 import {CompleteProfileComponent} from "./components/complete-profile/complete-profile.component";
+import {ProfileComponent} from "./components/profile/profile.component";
 
-const routes: Routes = [
+const routes: VexRoutes = [
     {
-        path: routing.ACCOUNT_AVATAR,
+        path: '',
+        component: ProfileComponent,
+    },
+    {
+        path: 'avatar',
         component: SelectAvatarComponent,
         data: { title: "Avatar" },
     },
     {
-        path: routing.ACCOUNT_COMPLETE,
+        path: 'completar',
         component: CompleteProfileComponent,
         data: { title: "Completar Perfil" },
     },

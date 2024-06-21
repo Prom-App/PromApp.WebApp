@@ -20,7 +20,7 @@ export class OnBoardingTestComponent {
     imagePathBase: string = './assets/img/backgrounds/back-';
     testForm: FormGroup;
     currentIndex: number = 0;
-    nameTest: string= 'OnBoarding';
+    nameTest: string = 'OnBoarding';
     testResult: any[any];
 
     constructor(private formBuilder: FormBuilder,
@@ -83,9 +83,8 @@ export class OnBoardingTestComponent {
 
     submitForm() {
         if (!this.testForm.valid) {
-            this._alert.warn("Revisar","Aun no has respondido todas las preguntas");
-        }
-        else {
+            this._alert.warn("Revisar", "Aun no has respondido todas las preguntas");
+        } else {
             this.spinner.show();
             this.testService.saveTest(this.nameTest, this.testResult).subscribe(
                 (res: string) => {

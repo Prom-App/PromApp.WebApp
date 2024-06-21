@@ -7,9 +7,10 @@ import {
     SelectAutocompleteComponent
 } from "@shared/components/reusables/select-autocomplete/select-autocomplete.component";
 import {CompleteProfileComponent} from "./components/complete-profile/complete-profile.component";
+import {ProfileComponent} from "./components/profile/profile.component";
 
 @NgModule({
-    declarations: [SelectAvatarComponent,CompleteProfileComponent],
+    declarations: [SelectAvatarComponent,CompleteProfileComponent,ProfileComponent],
     imports: [CommonModule, SharedModule, AccountRoutingModule, SelectAutocompleteComponent]
 })
 export class AccountModule {

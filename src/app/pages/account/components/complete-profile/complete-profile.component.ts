@@ -208,7 +208,7 @@ export class CompleteProfileComponent implements OnInit {
                 this.spinner.hide();
                 if (res) {
                     this.alert.success("Exitoso","Se ha actualizado la información");
-                    this.router.navigate([routing.HOME]);
+                    this.router.navigate([routing.ACCOUNT]);
                 } else
                     this.alert.error("Error","No se actualizó la información, por favor contacte a un administrador");
             },
