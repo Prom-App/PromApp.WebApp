@@ -6,6 +6,7 @@ import {BehaviorSubject} from "rxjs";
 import {environment} from "src/environments/environment";
 import {AuthService} from "../../services/auth.service";
 import {NgxSpinnerService} from "ngx-spinner";
+import {routing} from "@shared/static-helpers/routing";
 
 declare var window: any;
 declare var google: any;
@@ -69,7 +70,7 @@ export class LoginGoogleComponent implements OnInit {
                     this.spinner.hide();
                     if (resp.isSuccess) {
                         this.ngZone.run(() => {
-                            this.router.navigate(["/"]);
+                            this.router.navigate([routing.ACCOUNT]);
                         });
                     }
                 },

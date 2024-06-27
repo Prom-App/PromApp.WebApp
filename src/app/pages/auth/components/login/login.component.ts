@@ -8,11 +8,13 @@ import {helpers} from "@shared/static-helpers/helpers";
 import {routing} from "@shared/static-helpers/routing";
 import {AlertService} from "@shared/services/alert.service";
 import {MatTabChangeEvent} from "@angular/material/tabs";
+import {catchError} from "rxjs/operators";
+import {of} from "rxjs";
 
 @Component({
-    selector: "vex-login",
-    templateUrl: "./login.component.html",
-    styleUrls: ["./login.component.scss"],
+    selector: 'vex-login',
+    templateUrl: './login.component.html',
+    styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
     loginForm: FormGroup;
@@ -20,16 +22,18 @@ export class LoginComponent implements OnInit {
     loginTitle = 'Bienvenido';
     loginSubTitle = 'Tiempo sin vernos ya te extrañabamos';
     backgroundImageUrl = './assets/img/backgrounds/login-background.png';
-    imgShow: boolean = true;
-    inputType = "password";
+    imgShow = true;
+    inputType = 'password';
     visible = false;
-    icVisibility = IconService.prototype.getIcon("icVisibility");
-    icVisibilityOff = IconService.prototype.getIcon("icVisibilityOff");
+    icVisibility = IconService.prototype.getIcon('icVisibility');
+    icVisibilityOff = IconService.prototype.getIcon('icVisibilityOff');
+    errorLogin = '';
+    errorRegister = '';
 
     initForm(): void {
         this.loginForm = this.fb.group({
             email: ['', [Validators.required, Validators.email]],
-            contrasena: ["", [Validators.required]],
+            contrasena: ['', [Validators.required]],
         });
 
         this.registerForm = this.fb.group({
@@ -92,11 +96,17 @@ export class LoginComponent implements OnInit {
                 this.spinner.hide();
             });
         }
-        this.authService.login(this.loginForm.value, "Interno").subscribe((resp) => {
+        this.authService.login(this.loginForm.value, "Interno").pipe(
+            catchError(error => {
+                this.spinner.hide();
+                this.errorLogin = 'Usuario y/o contraseña incorrectos';
+                return of(null);
+            })
+        ).subscribe((resp) => {
             this.spinner.hide();
             if (resp) {
                 this._alert.success("Conectado", "Ingresando");
-                this.router.navigate([routing.ON_BOARDING_TEST]);
+                this.router.navigate([routing.ACCOUNT]);
             }
         });
     }
@@ -105,14 +115,14 @@ export class LoginComponent implements OnInit {
         let password: any;
         password = registerForm.value.contrasena;
         const confirmPassword = registerForm.value.confirmaContrasena;
-        return password === confirmPassword ? null : {'notMatch': true};
+        return password === confirmPassword ? null : {notMatch: true};
     }
 
     register() {
         this.spinner.show();
         if (this.confirmPasswordValidator(this.registerForm) != null) {
+            this.errorRegister = 'Las contraseñas no coinciden';
             this.spinner.hide();
-            this._alert.error("Algo salió mal", "Las contraseñas no coinciden");
             return;
         }
 
@@ -120,13 +130,22 @@ export class LoginComponent implements OnInit {
             return Object.values(this.registerForm.controls).forEach((controls) => {
                 controls.markAllAsTouched();
                 this.spinner.hide();
+                return;
             });
         }
 
-        this.authService.register(this.registerForm.value).subscribe(() => {
+        this.authService.register(this.registerForm.value).pipe(
+            catchError(error => {
+                this.spinner.hide();
+                this.errorRegister = 'No se pudo crear la cuenta.';
+                return of(null);
+            })
+        ).subscribe((resp: any) => {
             this.spinner.hide();
-            this._alert.success("Conectado", "Ingresando");
-            this.router.navigate([routing.ON_BOARDING_TEST]);
+            if (resp) {
+                this._alert.success("Conectado", "Ingresando");
+                this.router.navigate([routing.ON_BOARDING_TEST]);
+            }
         });
     }
 
@@ -176,6 +195,8 @@ export class LoginComponent implements OnInit {
         if (!this.hasNumber()) {
             messages.push('Al menos un número');
         }
-        return messages.join("\n");
+
+        let mess=messages.join("\n");
+        return mess;
     }
 }

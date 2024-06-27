@@ -52,8 +52,8 @@ export class AuthService {
                 return res;
             }),
             catchError((error) => {
-                this.logError(error);
-                return of(null);
+                // this.logError(error);
+                return error;
             })
         );
     }

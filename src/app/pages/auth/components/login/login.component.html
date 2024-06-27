@@ -13,7 +13,8 @@
             <mat-tab-group (selectedTabChange)="onTabChange($event)">
                 <mat-tab label="Ingresar">
                     <form [formGroup]="loginForm" class="login-form" (ngSubmit)="login()">
-                        <mat-form-field appearance="outline" class="textbox">
+                        <mat-label class="error-message">{{errorLogin}}</mat-label>
+                        <mat-form-field appearance="outline" color="accent" class="textbox">
                             <mat-label>Usuario</mat-label>
                             <input matInput formControlName="email"/>
                         </mat-form-field>
@@ -32,13 +33,14 @@
                             </button>
                         </mat-form-field>
                         <span class="text-coco-light">Recuperar contraseña <a href="#">clic aquí</a></span>
-                        <button type="submit" mat-button color="primary" class="text-futura">
+                        <button [disabled]="!loginForm.valid" type="submit" mat-button color="primary" class="text-futura">
                             Iniciar Sesión
                         </button>
                     </form>
                 </mat-tab>
                 <mat-tab label="Registrarme">
                     <form [formGroup]="registerForm" class="login-form" (ngSubmit)="register()">
+                        <mat-label class="error-message">{{errorRegister}}</mat-label>
                         <mat-form-field appearance="outline" class="textbox">
                             <mat-label>Usuario</mat-label>
                             <input matInput formControlName="email"/>
@@ -51,8 +53,8 @@
                                    #menuTrigger="matMenuTrigger"
                                    [matMenuTriggerFor]="menu"/>
                             <mat-menu #menu="matMenu" class="popover-style">
-                                <ng-template matMenuContent *ngIf="tooltip().trim() !== ''">
-                                    <div [innerText]="tooltip()"></div>
+                                <ng-template matMenuContent *ngIf="tooltip().trim() != ''">
+                                    <div *ngIf="tooltip().trim() != ''" [innerText]="tooltip()"></div>
                                 </ng-template>
                             </mat-menu>
                             <button
@@ -80,7 +82,7 @@
                                 <mat-icon *ngIf="!visible" [icIcon]="icVisibilityOff"></mat-icon>
                             </button>
                         </mat-form-field>
-                        <button type="submit" color="primary" mat-raised-button>
+                        <button [disabled]="!registerForm.valid" type="submit" mat-button color="primary" class="text-futura">
                             Registrarme
                         </button>
                     </form>

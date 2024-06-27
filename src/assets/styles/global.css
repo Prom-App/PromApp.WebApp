@@ -405,9 +405,46 @@ select + .select2-container--bootstrap-5{
   margin-bottom: 0 !important;
 }
 
-.mat-form-field-wrapper{
-  border: 2px solid #FF6B00 !important;
-  font-family: 'Helvetica-Light', sans-serif;
-  max-height: 53px;
-  border-radius: 10px;
+.mat-form-field-appearance-outline.mat-focused.mat-accent .mat-form-field-outline-thick{
+  color: #FF6B00 !important;
+}
+.mat-form-field.mat-accent .mat-input-element{
+  caret-color: #FF6B00 !important;
+}
+.mat-form-field.mat-focused .mat-form-field-label.mat-accent {
+  color: #FF6B00 !important;
+
+}
+.mat-focused .mat-form-field-required-marker{
+  color: #FF6B00 !important;
+}
+
+.mat-form-field-flex:hover{
+  color: #fff !important;
+  background-color: #FF6B00 !important;
+  border-radius: 5px;
+  height: 55px;
+  margin-top: 0.1px !important;
+}
+.mat-form-field-flex:hover>input{
+  color: #fff;
+}
+
+.mat-form-field-appearance-outline .mat-form-field-outline {
+  color: #FF6B00 !important;
+}
+
+.mat-form-field-label{
+  color: #FF6B00 !important;
+
+}
+
+.mat-form-field-appearance-outline .mat-form-field-outline-thick {
+  opacity: 1 !important;
+}
+.mat-form-field-appearance-outline .mat-form-field-infix:hover {
+  padding-top: 11px !important;
+}
+.mat-form-field-wrapper {
+  padding-bottom: 0 !important;
 }

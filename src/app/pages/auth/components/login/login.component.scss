@@ -115,3 +115,14 @@
   font-family: 'Cocogoose', sans-serif !important;
 }
 
+.error-message{
+  font-family: 'Cocogoose', sans-serif !important;
+  color: #EB0045;
+  font-size: 16px;
+  padding-top: 15px;
+}
+
+.custom-tooltip {
+  background-color: #10c7c1;
+  white-space: pre-line; /* Esto permite que los saltos de línea sean visibles */
+}
