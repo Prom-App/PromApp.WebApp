@@ -10,6 +10,7 @@ import {AlertService} from "@shared/services/alert.service";
 import {routing} from "@shared/static-helpers/routing";
 import {IconService} from "@shared/services/icon.service";
 import {SelectAutocomplete} from "@shared/models/select-autocomplete.interface";
+import {TokenService} from "../../services/token.service";
 
 declare let $: any;
 
@@ -50,13 +51,14 @@ export class CompleteProfileComponent implements OnInit {
                 private sharedServices: SharedService,
                 private router: Router,
                 private spinner: NgxSpinnerService,
-                private alert: AlertService) {
+                private alert: AlertService,
+                private token: TokenService) {
 
         if (!this.authService.userToken) {
             this.router.navigate(["/"]);
         }
 
-        // this.avatarUrl = this.token.getTokenInfo().avatar;
+         this.avatarUrl = this.token.getTokenInfo().avatar;
 
     }
 

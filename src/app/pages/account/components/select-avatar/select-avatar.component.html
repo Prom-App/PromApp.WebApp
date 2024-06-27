@@ -13,10 +13,10 @@
                     [listOptions]="avatarSelect"
             >
             </app-select-autocomplete>
-            <button type="submit" color="primary" mat-raised-button [disabled]="!form.valid">
+
+            <button [disabled]="!form.valid" type="submit" mat-button color="primary" class="text-futura">
                 Siguiente
             </button>
         </form>
     </div>
 </div>
-

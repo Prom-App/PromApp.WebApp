@@ -436,7 +436,6 @@ select + .select2-container--bootstrap-5{
 
 .mat-form-field-label{
   color: #FF6B00 !important;
-
 }
 
 .mat-form-field-appearance-outline .mat-form-field-outline-thick {
@@ -447,4 +446,21 @@ select + .select2-container--bootstrap-5{
 }
 .mat-form-field-wrapper {
   padding-bottom: 0 !important;
+}
+.mat-button-disabled:hover{
+  background-color: #fff !important;
+  color: #FF6B00 !important;
+}
+.mat-button.mat-primary:hover {
+  color: #FFF;
+  background-color: #FF6B00;
+}
+.mat-calendar-body-selected {
+  background-color: #FF6B00 !important;
+  color: #fff;
+}
+@media (hover: hover) {
+  .mat-calendar-body-cell:not(.mat-calendar-body-disabled):hover > .mat-calendar-body-cell-content:not(.mat-calendar-body-selected):not(.mat-calendar-body-comparison-identical) {
+    background-color: #FF6B00 !important;
+  }
 }

@@ -1,7 +1,10 @@
-<div class="header" style="background-image: url('./assets/media/header/backgroung-header.png');">
-    <app-profile-progress-bar [progress]="progressWidth"></app-profile-progress-bar>
+<div class="header" style="background-image: url('./assets/img/header/backgroung-header.png');">
+<!--    <app-profile-progress-bar [progress]="progressWidth"></app-profile-progress-bar>-->
     <div class="avatar">
-        <img src="{{avatarUrl}}" alt="Avatar" class="avatar-image">
+        <div class="inner-circle">
+            <img src="{{avatarUrl}}" alt="Avatar" class="avatar-image">
+        </div>
     </div>
-    <p class="header-title"> {{title}} </p>
+
+    <!--    <p class="header-title"> {{title}} </p>-->
 </div>

@@ -1,4 +1,4 @@
-.form-container {
+/*.form-container {
   height: 100vh;
   overflow-y: auto;
   padding: 20px;
@@ -12,4 +12,27 @@ form {
 
 .textbox {
   margin-bottom: 20px;
+}*/
+.centered-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  min-height: 100vh; /* Opcional: ajusta la altura mínima del contenedor */
+  padding: 20px; /* Opcional: agrega un poco de espacio alrededor del formulario */
+}
+
+.form-container form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 600px; /* Ajusta el ancho máximo del formulario */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Opcional: agrega una sombra para resaltar el formulario */
+  padding: 20px; /* Opcional: agrega un poco de espacio dentro del formulario */
+  background-color: white; /* Opcional: cambia el fondo del formulario */
+  border-radius: 8px; /* Opcional: redondea las esquinas del formulario */
+}
+
+.textbox {
+  width: 100%;
 }
