@@ -78,7 +78,8 @@ export class OnBoardingTestComponent {
     setCurrentBackgroundImage() {
         const currentImageIndex = this.currentIndex + 1;
         const imagePath = `${this.imagePathBase}${currentImageIndex}.png`;
-        document.getElementById('body')!.style.background = `url("${imagePath}")`;
+        document.body.style.background = `url("${imagePath}") no-repeat center center fixed`;
+        document.body.style.backgroundSize = 'cover';
     }
 
     submitForm() {

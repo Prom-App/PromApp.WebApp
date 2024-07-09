@@ -109,7 +109,7 @@ const routes: VexRoutes = [
     loadChildren: () =>
         import("./pages/auth/auth.module").then((m) => m.AuthModule),
     data: {
-      containerEnabled: true,
+      scrollDisabled: true,
     },
   },
   {
@@ -118,7 +118,7 @@ const routes: VexRoutes = [
         import("./pages/test/test.module").then((x) => x.TestModule),
     component: OnBoardingTestComponent,
     data: {
-      containerEnabled: true,
+      scrollDisabled: false,
     },
   },
   {

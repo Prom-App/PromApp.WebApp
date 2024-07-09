@@ -1,7 +1,6 @@
-<div id="body">
+<div id="body" style="height: 100vh">
     <div class="container">
         <img src="assets/img/test/onBoarding-description.png" alt="">
-
         <form [formGroup]="testForm">
             <div *ngFor="let pregunta of test?.preguntas; let i = index">
                 <div class="question-parent" *ngIf="i === currentIndex">
