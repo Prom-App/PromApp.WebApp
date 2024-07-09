@@ -43,6 +43,13 @@
   justify-content: center;
 }
 
+@media (max-width: 450px) {
+  .text-futura{
+    color: #FFFFFF;
+    font-size: 14px;
+  }
+}
+
 .text-futura{
   color: #FFFFFF;
   font-weight: bolder;

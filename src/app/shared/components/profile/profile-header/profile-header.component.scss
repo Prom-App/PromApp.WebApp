@@ -3,7 +3,7 @@
   height: 150px;
   background-repeat: no-repeat;
   background-size: cover;
-  border-radius: 0 0 10% 10%;
+  border-radius: 0 0 40px 40px;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -39,15 +39,15 @@
 
 .avatar {
   margin: 10px;
-  width: 150px; /* Ajusta el tamaño según sea necesario */
-  height: 150px; /* Debe ser igual a width para un círculo perfecto */
-  border: 10px solid #FF6B00; /* Borde de color naranja */
-  border-radius: 50%; /* Esto hace que el contenedor sea un círculo */
+  width: 150px;
+  height: 150px;
+  border: 10px solid #FF6B00;
+  border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: white; /* Fondo blanco dentro del círculo */
-  box-sizing: border-box; /* Incluye el borde dentro del tamaño total del contenedor */
+  background-color: white;
+  box-sizing: border-box;
 }
 
 .inner-circle {
@@ -58,13 +58,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: white; /* Fondo blanco dentro del círculo */
+  background-color: white;
 }
 
 .avatar-image {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Esto asegura que la imagen cubra completamente el contenedor */
+  object-fit: cover;
 }
 
 
